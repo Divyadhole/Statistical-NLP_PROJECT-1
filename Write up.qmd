@@ -1,0 +1,63 @@
+---
+title: "Sentiment Analysis Using Naive Bayes on IMDb Movie Reviews"
+author: "Divya Liladhar Dhole"
+date: "`r Sys.Date()`"
+format: pdf
+---
+
+# Introduction
+
+Sentiment analysis is a crucial task in natural language processing (NLP) that involves determining the sentiment expressed in a piece of text. It plays a vital role in various applications, including opinion mining, customer feedback analysis, social media monitoring, and market research. By analyzing sentiments, businesses and organizations can gain valuable insights into public opinion, customer satisfaction, and emerging trends.
+
+This project focuses on classifying movie reviews from the IMDb dataset as either positive or negative. With the rapid growth of online reviews, automated sentiment analysis has become increasingly important for processing large volumes of text efficiently. For this task, we employed the Multinomial Naive Bayes classifier, a widely used algorithm for text classification tasks. Its strength lies in its ability to handle discrete features, such as word counts, making it particularly suitable for text data.
+
+# Methods
+
+## Data Collection
+
+For this analysis, we utilized the IMDb movie reviews dataset, which contains a large collection of labeled reviews categorized as positive or negative. The dataset was accessed through the Natural Language Toolkit (NLTK) library, a powerful tool for working with human language data. NLTK provides a variety of corpora, and the IMDb dataset is commonly used for training and evaluating sentiment analysis models.
+
+## Data Preprocessing
+
+Data preprocessing is a critical step in preparing raw text data for analysis. The following preprocessing steps were undertaken:
+
+1. **Downloading the Dataset**: The IMDb movie reviews dataset was downloaded using the NLTK library. This process involves loading the dataset into memory for further manipulation and analysis.
+   
+2. **Tokenization**: The text was tokenized into individual words to facilitate further analysis. Tokenization helps in breaking down the text into manageable units, which can then be analyzed individually.
+
+3. **Removing Stopwords**: Commonly used words that do not carry significant meaning (e.g., "and," "the," "is") were removed from the text data. Removing stopwords reduces noise in the dataset and enhances the model's performance by focusing on the more informative words that convey sentiment.
+
+4. **TF-IDF Vectorization**: We applied Term Frequency-Inverse Document Frequency (TF-IDF) to convert the text data into numerical features. TF-IDF is a statistical measure that evaluates the importance of a word in a document relative to a collection of documents (the corpus). It helps in identifying the most relevant words in each review, allowing the model to differentiate between significant and insignificant words effectively.
+
+## Model Training
+
+The Multinomial Naive Bayes classifier was chosen for this project due to its simplicity, efficiency, and effectiveness in handling text data, where the features are word counts or frequencies. This model assumes that the presence of a particular feature (word) is independent of the presence of any other feature, which, while a strong assumption, works surprisingly well in practice for text classification tasks.
+
+The dataset was split into 80% for training and 20% for testing. The Multinomial Naive Bayes classifier was trained on the TF-IDF features derived from the training set. The hyperparameters used in the model training were set to default values appropriate for this classification task. Training the model involved calculating the probabilities of each class given the features, which would later be used to predict the sentiment of unseen reviews.
+
+# Results
+
+The performance of the Multinomial Naive Bayes classifier was evaluated using various metrics, including accuracy, precision, recall, and F1-score. 
+
+The results indicated that the model achieved an accuracy of approximately 85%. The classification report provided detailed metrics for both classes, including precision (the ratio of true positive predictions to the total predicted positives), recall (the ratio of true positive predictions to the total actual positives), and F1-score (the harmonic mean of precision and recall). These metrics offer insights into the model's performance beyond simple accuracy, helping to understand how well the model classifies each class.
+
+Additionally, confusion matrices were generated to visualize the performance of the model. Confusion matrices illustrate the number of true positive, true negative, false positive, and false negative predictions, allowing for a deeper understanding of the model's strengths and weaknesses.
+
+# Discussion
+
+The Multinomial Naive Bayes classifier demonstrated reasonable performance in classifying movie reviews. The model achieved an accuracy of around 85%, which suggests it effectively captured the sentiment expressed in the reviews. However, while the results were promising, there are potential areas for improvement.
+
+More sophisticated models, such as Support Vector Machines (SVM) or ensemble methods, could be explored to enhance performance. These models often capture complex patterns in the data better than simpler algorithms like Naive Bayes. Additionally, hyperparameter tuning could be employed to optimize the Naive Bayes model further, adjusting parameters such as alpha for smoothing to achieve better results.
+
+One limitation of the Naive Bayes model is its assumption of feature independence, which may not hold true for all datasets. This can lead to suboptimal performance in cases where word occurrences are correlated. Addressing class imbalance in the dataset could also be beneficial, as unbalanced datasets can skew model performance.
+
+# Conclusion
+
+This study illustrates the effectiveness of the Multinomial Naive Bayes classifier in performing sentiment analysis on movie reviews. The model provided valuable insights into the sentiment expressed in the text, achieving a respectable accuracy. Future work could involve exploring advanced models and techniques to improve accuracy and robustness further, as well as addressing the limitations of the current approach.
+
+# Acknowledgments
+
+We thank the authors of the NLTK library and the IMDb dataset for making this research possible.
+
+# References
+% Include your references here using the citation syntax if applicable
