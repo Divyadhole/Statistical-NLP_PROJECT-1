@@ -59,5 +59,4 @@ This study illustrates the effectiveness of the Multinomial Naive Bayes classifi
 
 We thank the authors of the NLTK library and the IMDb dataset for making this research possible.
 
-# References
-% Include your references here using the citation syntax if applicable
+
